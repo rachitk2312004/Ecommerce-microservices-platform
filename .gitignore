@@ -1,0 +1,33 @@
+# Build
+target/
+dist/
+build/
+node_modules/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+.DS_Store
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
+
+# Frontend
+frontend/dist/
+frontend/.vite/
+
+# Test
+coverage/
+*.class

@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: inventory-service
+  datasource:
+    url: jdbc:mysql://${AIVEN_MYSQL_HOST:localhost}:${AIVEN_MYSQL_PORT:3306}/${INVENTORY_DB_NAME:ecommerce_inventory_db}?useSSL=${AIVEN_MYSQL_SSL:true}&requireSSL=${AIVEN_MYSQL_SSL:true}&serverTimezone=UTC
+    username: ${AIVEN_MYSQL_USER:root}
+    password: ${AIVEN_MYSQL_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+  internal:
+    service-key: ${INTERNAL_SERVICE_KEY:dev-internal-key}
+  seed:
+    enabled: ${SEED_DATA_ENABLED:true}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+info:
+  app:
+    name: Inventory Service
